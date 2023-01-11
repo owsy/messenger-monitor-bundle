@@ -1,0 +1,13 @@
+{% extends "@SymfonyCastsMessengerMonitor/template/card.html.twig" %}
+
+{% block card_class %}failed-message-details-card{% endblock %}
+
+{% block card_title %}{{ failed_message.messageClass }}{% endblock %}
+
+{% block card_body %}
+    <ul class="mb-0">
+        {% for key,value in failed_message.messageDetails %}
+            <li>{{ key }}: {{ value }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
