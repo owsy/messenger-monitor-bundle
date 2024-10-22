@@ -18,7 +18,7 @@ final class RejectFailedMessageController
     public function __construct(
         private FailedMessageRejecter $failedMessageRejecter,
         private RequestStack $requestStack,
-        private UrlGeneratorInterface $urlGenerator
+        private UrlGeneratorInterface $urlGenerator,
     ) {
     }
 
@@ -29,9 +29,9 @@ final class RejectFailedMessageController
 
         try {
             $this->failedMessageRejecter->rejectFailedMessage($id);
-            $sessionBag->add('messenger_monitor.success', sprintf('Message with id "%s" correctly rejected.', $id));
+            $sessionBag->add('messenger_monitor.success', \sprintf('Message with id "%s" correctly rejected.', $id));
         } catch (\Exception $exception) {
-            $sessionBag->add('messenger_monitor.error', sprintf('Error while rejecting message with id "%s": %s', $id, $exception->getMessage()));
+            $sessionBag->add('messenger_monitor.error', \sprintf('Error while rejecting message with id "%s": %s', $id, $exception->getMessage()));
         }
 
         return new RedirectResponse($this->urlGenerator->generate('symfonycasts.messenger_monitor.dashboard'));

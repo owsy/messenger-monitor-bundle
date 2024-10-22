@@ -1,0 +1,22 @@
+{% extends "@SymfonyCastsMessengerMonitor/template/base.html.twig" %}
+
+{% block title %} - Failed Message - {{ failed_message.transportMessageId.id }}{% endblock %}
+
+{% block messenger_monitor_main %}
+    {% set errorDetails = failed_message.errorDetails %}
+
+    <h1 class="display-4"><span class="badge badge-danger">{{ errorDetails.exceptionCode }}</span> {{ errorDetails.exceptionClass }}</h1>
+    <p class="lead pb-3">{{ errorDetails.exceptionMessage }}</p>
+
+    <div class="row">
+        <div class="col-lg-6">
+            {% include "@SymfonyCastsMessengerMonitor/blocks/_failed_message_details.html.twig" with {failed_message} only %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            {% include "@SymfonyCastsMessengerMonitor/blocks/_failed_message_stack_trace.html.twig" with {failed_message} only %}
+        </div>
+    </div>
+{% endblock %}

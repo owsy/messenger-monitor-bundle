@@ -13,6 +13,11 @@
             <argument type="service" id="symfonycasts.messenger_monitor.statistics.processor"/>
         </service>
 
+        <service id="symfonycasts.messenger_monitor.controller.show_failed_message" class="SymfonyCasts\MessengerMonitorBundle\Controller\ShowFailedMessageController" public="true">
+            <argument type="service" id="twig"/>
+            <argument type="service" id="symfonycasts.messenger_monitor.failed_receiver.provider"/>
+        </service>
+
         <service id="symfonycasts.messenger_monitor.controller.retry_failed_message" class="SymfonyCasts\MessengerMonitorBundle\Controller\RetryFailedMessageController" public="true">
             <argument type="service" id="symfonycasts.messenger_monitor.failed_message.retry"/>
             <argument type="service" id="request_stack"/>

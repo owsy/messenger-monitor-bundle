@@ -8,6 +8,10 @@
         <default key="_controller">symfonycasts.messenger_monitor.controller.dashboard</default>
     </route>
 
+    <route id="symfonycasts.messenger_monitor.show_failed_message" path="/failed-message/{id}">
+        <default key="_controller">symfonycasts.messenger_monitor.controller.show_failed_message</default>
+    </route>
+
     <route id="symfonycasts.messenger_monitor.retry_failed_message" path="/failed-message/retry/{id}">
         <default key="_controller">symfonycasts.messenger_monitor.controller.retry_failed_message</default>
     </route>

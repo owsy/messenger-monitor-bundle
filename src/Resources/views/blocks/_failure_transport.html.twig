@@ -20,7 +20,10 @@
             <tbody>
             {% for failedMessage in failedMessages %}
                 <tr>
-                    <td>{{ failedMessage.id }}</td>
+                    <td>
+                        <a href="{{ path('symfonycasts.messenger_monitor.show_failed_message', {id: failedMessage.id}) }}">{{ failedMessage.id }}</a>
+                    </td>
+
                     <td>{{ failedMessage.class }}</td>
                     <td>{{ failedMessage.failedAt }}</td>
                     <td>{{ failedMessage.error }}</td>

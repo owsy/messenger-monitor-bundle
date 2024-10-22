@@ -1,0 +1,9 @@
+{% extends "@SymfonyCastsMessengerMonitor/template/card.html.twig" %}
+
+{% block card_class %}failed-message-stack-trace-card{% endblock %}
+
+{% block card_title %}Stack trace{% endblock %}
+
+{% block card_body %}
+    <pre>{{ failed_message.errorDetails.flattenException.traceAsString }}</pre>
+{% endblock %}
